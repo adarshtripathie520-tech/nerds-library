@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novels</title>
+    <link rel="stylesheet" href="novels.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- HEADER LOGO -->
+    <div class="topbar">Novels</div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search books...">
+        <button><i class="fa fa-search"></i></button>
+    </div>
+
+    <!-- SECTION TITLE -->
+    <div class="section-title">Books</div>
+
+    <!-- NOVEL CARDS -->
+    <div class="book-row">
+        <div class="cards-container">
+            <!-- Harry Potter Card -->
+            <div class="novel-card" onclick="openPopup('harryPotter')">
+                <img src="harrypotter.jpg" alt="Harry Potter">
+                <h3>Harry Potter Series</h3>
+            </div>
+
+            <!-- Game of Thrones Card -->
+            <div class="novel-card" onclick="openPopup('got')">
+                <img src="images/got.jpg" alt="Game of Thrones">
+                <h3>Game of Thrones Series</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP -->
+    <div class="popup-background" id="popupBg">
+        <span class="close-btn" onclick="closePopup()">✖</span>
+        <div class="popup-books" id="popupBooks"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>© 2025 Nerds Library – All Rights Reserved</footer>
+
+    <!-- SEARCH SCRIPT -->
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("keyup", function () {
+            let filter = searchInput.value.toLowerCase();
+            let books = document.querySelectorAll(".novel-card");
+
+            books.forEach(book => {
+                let title = book.querySelector("h3").innerText.toLowerCase();
+                if (title.includes(filter)) {
+                    book.style.display = "block";
+                } else {
+                    book.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+    <script src="novels.js"></script>
+</body>
+</html>

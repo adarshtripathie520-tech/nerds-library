@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nerds Library</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <!-- LOGO / HEADER -->
+  <div class="topbar">Nerds Library</div>
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search books...">
+    <button><i class="fa fa-search"></i></button>
+  </div>
+
+  <!-- MENU BAR -->
+  <div class="menu-bar">
+  <a href="dashboard.html" class="menu-item active"><i class="fa fa-home"></i> Home</a>
+  <a href="novels.html" class="menu-item"><i class="fa fa-star"></i> Novels</a>
+  <a href="#" class="menu-item"><i class="fa fa-heart"></i> Category</a>
+  <a href="#" class="menu-item"><i class="fa fa-book"></i> Books</a>
+</div>
+
+
+  <!-- BOOK SECTION -->
+  <div class="section-title">Books</div>
+
+  <div class="book-row">
+
+    <!-- Book 1 -->
+    <a href="reader.html?pdf=https://www.planetebook.com/free-ebooks/crime-and-punishment.pdf" class="book-card">
+      <img src="crime and punishment.jpg" alt="Crime and Punishment">
+      <h5 class="book-title">Crime and Punishment</h5>
+    </a>
+
+    <!-- Book 2 -->
+    <a href="reader.html?pdf=https://dn721502.ca.archive.org/0/items/whitenightsother00dostiala/whitenightsother00dostiala.pdf" class="book-card">
+      <img src="white nights.jpg" alt="White Nights">
+      <h5 class="book-title">White Nights</h5>
+    </a>
+
+    <!-- Book 3 -->
+    <a href="reader.html?pdf=the-metamorphosis.pdf" class="book-card">
+      <img src="the metamorphosis.jpg" alt="The Metamorphosis">
+      <h5 class="book-title">The Metamorphosis</h5>
+    </a>
+
+    <!-- Book 4 -->
+    <a href="reader.html?pdf=letters-to-milena.pdf" class="book-card">
+      <img src="letters-to-milena.jpg" alt="Letters to Milena">
+      <h5 class="book-title">Letters to Milena</h5>
+    </a>
+
+    <!-- Book 5 -->
+    <a href="reader.html?pdf=brotherskaramaz.pdf" class="book-card">
+      <img src="the brothers.jpg" alt="The Brothers Karamazov">
+      <h5 class="book-title">The Brothers Karamazov</h5>
+    </a>
+
+    <!-- Book 6 -->
+    <a href="reader.html?pdf=the-idiot.pdf" class="book-card">
+      <img src="the idiot.jpg" alt="The Idiot">
+      <h5 class="book-title">The Idiot</h5>
+    </a>
+
+    <!-- Book 7 -->
+    <a href="reader.html?pdf=The-Gambler.pdf" class="book-card">
+      <img src="the-gambler.jpg" alt="The Gambler">
+      <h5 class="book-title">The Gambler</h5>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>© 2025 Nerds Library – All Rights Reserved</footer>
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("keyup", function () {
+      let filter = searchInput.value.toLowerCase();
+      let books = document.querySelectorAll(".book-card");
+
+      books.forEach(book => {
+        let title = book.querySelector(".book-title").innerText.toLowerCase();
+
+        if (title.includes(filter)) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

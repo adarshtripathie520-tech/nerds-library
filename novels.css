@@ -1,0 +1,238 @@
+/* ==========================
+   BODY
+========================== */
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #d8bd90;
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-repeat: repeat;
+  color: #3a2b1a;
+}
+
+/* ==========================
+   HEADER LOGO
+========================== */
+.topbar {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ==========================
+   SEARCH BAR
+========================== */
+.search-container {
+  width: 400px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fffdf7;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  font-size: 16px;
+  color: #3a2b1a;
+  background: transparent;
+}
+
+.search-container input::placeholder {
+  color: #7a5c3a;
+}
+
+.search-container button {
+  background: #382007;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ==========================
+   SECTION TITLE
+========================== */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 20px 0;
+  color: #3a2b1a;
+  border-bottom: 2px solid #865c31;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ==========================
+   NOVEL CARDS
+========================== */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.novel-card {
+  width: 180px;
+  background: #fff7e6;
+  border-radius: 0; /* sharp edges */
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.novel-card img {
+  width: 100%;
+  height: 240px; /* fixed height */
+  object-fit: cover;
+  border-radius: 0; /* sharp edges */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.novel-card h3 {
+  margin: 5px 0;
+  padding: 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Hover / Glow effect for novel cards */
+.novel-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 20px rgba(198, 125, 48, 0.4);
+  background: rgba(255, 245, 220, 0.9);
+}
+
+.novel-card:hover img {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(198, 125, 48, 0.4);
+}
+
+/* ==========================
+   POPUP BACKGROUND
+========================== */
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ffdddd;
+  transform: scale(1.2);
+}
+
+/* ==========================
+   POPUP BOOKS (HORIZONTAL)
+========================== */
+#popupBooks {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+}
+
+/* Scrollbar style */
+#popupBooks::-webkit-scrollbar {
+  height: 8px;
+}
+#popupBooks::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+#popupBooks::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+
+/* Popup book card */
+.popup-book {
+  width: 180px;
+  background: #fff7e6;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.popup-book img {
+  width: 100%;
+  height: 240px; /* fixed height */
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover / Glow effect for popup books */
+.popup-book:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 20px rgba(198,125,48,0.4);
+  background: rgba(255,245,220,0.9);
+  z-index: 10;
+}
+
+.popup-book:hover img {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(198,125,48,0.4);
+}
+
+/* Popup book title */
+.popup-book p {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #3a2b1a;
+  border-top: 2px solid #865c31;
+}

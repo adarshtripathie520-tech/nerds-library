@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Reader</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #d7c3a3;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .topbar {
+      background: #f2e9db;
+      padding: 18px 30px;
+      border-bottom: 2px solid #c9b79b;
+    }
+    .back-btn {
+      text-decoration: none;
+      color: #3a2b1a;
+      font-weight: bold;
+      font-size: 16px;
+      border: 1px solid #c67d30;
+      padding: 6px 12px;
+      border-radius: 5px;
+      background: #fffaf1;
+    }
+    .back-btn:hover {
+      background: #c67d30;
+      color: white;
+      border-color: #c67d30;
+    }
+    iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="dashboard.html" class="back-btn">← Back to Library</a>
+  </div>
+
+  <iframe id="pdfViewer" src=""></iframe>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pdfUrl = urlParams.get('pdf');
+    if (pdfUrl) {
+      document.getElementById('pdfViewer').src = pdfUrl;
+    }
+  </script>
+
+</body>
+</html>
